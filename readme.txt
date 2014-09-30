@@ -10,7 +10,7 @@ PHP Browser Detection is a WordPress plugin used to detect a user's browser. Ple
 
 == Description ==
 
-Version 3 adds support for is_tablet(), is_desktop(), and is_browser() as well as automatically updating and caching the browscap.ini database and numerous bug fixes and code improvements.
+Version 3 adds support for is_tablet(), is_desktop(), and is_browser() as well as numerous bug fixes and code improvements. As of version 3.1.2 automatic updates of browscap.ini are disabeld until we can deal with memory usage issues.
 
 PHP Browser Detection is a WordPress plugin used to detect a user's browser. It can be used to send conditional CSS files for Internet Explorer, display different content or custom messages anywhere on the page, or to swap out Flash for an image for iPhones.
 

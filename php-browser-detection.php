@@ -44,11 +44,6 @@ require_once('inc/admin.php');
 require_once('lib/Browscap.php');
 $browscap = new \phpbrowscap\Browscap(PBD_DIR_PATH.'cache');
 
-//$browscap->remoteIniUrl = 'http://browscap.org/stream?q=Lite_PHP_BrowsCapINI';
-//$browscap->$timeout = 10;
-//$browscap->$updateInterval = 2592000; // 30 days
-//$browscap->$doAutoUpdate = FALSE;
-//$browscap->updateCache();
 require_once('inc/deprecated.php');
 
 /**
