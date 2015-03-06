@@ -3,7 +3,7 @@
 Plugin Name: PHP Browser Detection
 Plugin URI: http://wordpress.org/extend/plugins/php-browser-detection/
 Description: Use PHP to detect browsers for conditional CSS or to detect mobile phones.
-Version: 3.1.2
+Version: 3.1.3
 Author: Mindshare Studios, Inc.
 Author URI: http://mind.sh/are
 License: GNU General Public License v3
@@ -12,27 +12,22 @@ Text Domain: php-browser-detection
 */
 
 /**
- *
- * Copyright 2009-2014 Mindshare Studios, Inc. / Marty Thornley / Garet Jax
- *
+ * Copyright 2009-2014 Mindshare Studios, Inc.
  * Based on code originally by Marty Thornley
- * Since version 3 making use of the BROWSCAP-PHP library by Garet Jax
+ * Since version 3 making use of the BROWSCAP-PHP library by Garet Jax / asgrim
  *
  * @link https://github.com/browscap/browscap-php
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License, version 3, as
- * published by the Free Software Foundation.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
- *
+ *       This program is free software; you can redistribute it and/or modify
+ *       it under the terms of the GNU General Public License, version 3, as
+ *       published by the Free Software Foundation.
+ *       This program is distributed in the hope that it will be useful,
+ *       but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *       GNU General Public License for more details.
+ *       You should have received a copy of the GNU General Public License
+ *       along with this program; if not, write to the Free Software
+ *       Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
  */
 
 if(!defined('PBD_DIR_PATH')) {
@@ -48,13 +43,13 @@ require_once('inc/deprecated.php');
 
 /**
  * Returns array of all browser info.
- *
  * @usage $browser_info = php_browser_info();
  *
  * @return array
  */
 function php_browser_info() {
 	global $browscap;
+
 	return $browscap->getBrowser(NULL, TRUE);
 }
 
@@ -65,17 +60,18 @@ function php_browser_info() {
  */
 function get_browser_name() {
 	$browser_info = php_browser_info();
+
 	return $browser_info['Browser'];
 }
 
 /**
- *
  * Returns the browser version number.
  *
  * @return mixed
  */
 function get_browser_version() {
 	$browser_info = php_browser_info();
+
 	return $browser_info['Version'];
 }
 
@@ -103,7 +99,6 @@ function is_browser($name = '', $version = '') {
 }
 
 /**
- *
  * Conditional to test for Firefox.
  *
  * @param string $version
@@ -115,7 +110,6 @@ function is_firefox($version = '') {
 }
 
 /**
- *
  * Conditional to test for Safari.
  *
  * @param string $version
@@ -176,6 +170,7 @@ function is_desktop() {
 	if(isset($browser_info['Device_Type']) && strpos($browser_info['Device_Type'], "Desktop") !== FALSE) {
 		return TRUE;
 	}
+
 	return FALSE;
 }
 
@@ -191,6 +186,7 @@ function is_tablet() {
 			return TRUE;
 		}
 	}
+
 	return FALSE;
 }
 
@@ -202,10 +198,11 @@ function is_tablet() {
 function is_mobile() {
 	$browser_info = php_browser_info();
 	if(isset($browser_info['isMobileDevice'])) {
-		if($browser_info['isMobileDevice'] == 1 || $browser_info['isMobileDevice'] == "true" || isset($browser_info['Device_Type']) &&  strpos($browser_info['Device_Type'], "Mobile") !== FALSE) {
+		if($browser_info['isMobileDevice'] == 1 || $browser_info['isMobileDevice'] == "true" || isset($browser_info['Device_Type']) && strpos($browser_info['Device_Type'], "Mobile") !== FALSE) {
 			return TRUE;
 		}
 	}
+
 	return FALSE;
 }
 
@@ -287,6 +284,7 @@ function browser_supports_javascript() {
 			return TRUE;
 		}
 	}
+
 	return FALSE;
 }
 
@@ -302,6 +300,7 @@ function browser_supports_cookies() {
 			return TRUE;
 		}
 	}
+
 	return FALSE;
 }
 
@@ -317,12 +316,12 @@ function browser_supports_css() {
 			return TRUE;
 		}
 	}
+
 	return FALSE;
 }
 
 /**
  * Evaluates natural language strings to boolean equivalent
- *
  * All values defined as TRUE will return TRUE, anything else is FALSE.
  * Boolean values will be passed through.
  *
@@ -340,5 +339,6 @@ function pbd_is_true($string, $true_synonyms = array('yes', 'y', 'true', '1', 'o
 	if(is_bool($string)) {
 		return $string;
 	}
+
 	return in_array(strtolower(trim($string)), $true_synonyms);
 }

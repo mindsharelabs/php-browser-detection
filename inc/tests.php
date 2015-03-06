@@ -12,7 +12,12 @@
  * 
  */
 include_once('../../../../wp-blog-header.php');
-$q = new WP_Query('page_id=2');
+if(array_key_exists('test-id', $_GET) && isset($_GET['test-id'])) {
+	$id = $_GET['test-id'];
+} else {
+	$id = 2;
+}
+$q = new WP_Query('page_id='.$id);
 get_header();
 ?>
 <div id="main" class="site-main">
