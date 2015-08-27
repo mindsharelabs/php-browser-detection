@@ -2,9 +2,9 @@
 Contributors: mindshare, MartyThornley
 Donate link: http://mind.sh/are/donate/
 Tags: php, browser detection, browser, internet explorer, iphone, mobile, browscap, detection
-Version: 3.1.4
-Tested up to: 4.2.2
-Stable tag: 3.1.4
+Version: 3.1.5
+Tested up to: 4.3
+Stable tag: 3.1.5
 
 PHP Browser Detection is a WordPress plugin used to detect a user's browser. Please report any bugs on the support forums.
 
@@ -89,11 +89,22 @@ Get the full version number - 3.2, 5.0, etc...
 
 == Frequently Asked Questions ==
 
+= PHP Browser Detection is reporting the version of Chrome (or any pother browser) as "0.0" =
+
+This means the local cached copy of the browscap.ini user agent database is out of date. You can fix this by updating the file yourself manually, or wait for a new release of the plugin. To update the file, download the most recent version here: http://browscap.org/stream?q=PHP_BrowsCapINI and save it over the one bundled with the plugin `php-browser-detection/cache/browscap.ini`
+
 = I got a fatal error on activation. What gives? =
 
 This most likely means your web host is running a very old version of PHP. As of version 3.0, only PHP 5.3 and above are supported. You can ask your host to upgrade PHP for you.
 
 == Changelog ==
+
+= 3.1.5 =
+* Updated Browscap to 2.0.5
+* Re-enable auto-updates
+* Added filter to turn off auto updates for host with low memory.
+* Added FAQ about manually updating.
+* Added global variable for `$browser_info = php_browser_info();`
 
 = 3.1.4 =
 * Updated default browscap.ini

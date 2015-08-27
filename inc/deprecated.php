@@ -77,7 +77,7 @@ function is_ie10() {
  */
 function is_lt_IE6() {
 	_deprecated_function(__FUNCTION__, '3.6', 'is_ie');
-	if(is_ie() && get_browser_version() < 6) {
+	if (is_ie() && get_browser_version() < 6) {
 		return TRUE;
 	} else {
 		return FALSE;
@@ -92,7 +92,7 @@ function is_lt_IE6() {
  */
 function is_lt_IE7() {
 	_deprecated_function(__FUNCTION__, '3.6', 'is_ie');
-	if(is_ie() && get_browser_version() < 7) {
+	if (is_ie() && get_browser_version() < 7) {
 		return TRUE;
 	} else {
 		return FALSE;
@@ -107,7 +107,7 @@ function is_lt_IE7() {
  */
 function is_lt_IE8() {
 	_deprecated_function(__FUNCTION__, '3.6', 'is_ie');
-	if(is_ie() && get_browser_version() < 8) {
+	if (is_ie() && get_browser_version() < 8) {
 		return TRUE;
 	} else {
 		return FALSE;
@@ -122,7 +122,7 @@ function is_lt_IE8() {
  */
 function is_lt_IE9() {
 	_deprecated_function(__FUNCTION__, '3.6', 'is_ie');
-	if(is_ie() && get_browser_version() < 9) {
+	if (is_ie() && get_browser_version() < 9) {
 		return TRUE;
 	} else {
 		return FALSE;
@@ -137,7 +137,7 @@ function is_lt_IE9() {
  */
 function is_lt_IE10() {
 	_deprecated_function(__FUNCTION__, '3.6', 'is_ie');
-	if(is_ie() && get_browser_version() < 10) {
+	if (is_ie() && get_browser_version() < 10) {
 		return TRUE;
 	} else {
 		return FALSE;
@@ -152,7 +152,7 @@ function is_lt_IE10() {
  */
 function is_lt_IE11() {
 	_deprecated_function(__FUNCTION__, '3.6', 'is_ie');
-	if(is_ie() && get_browser_version() < 11) {
+	if (is_ie() && get_browser_version() < 11) {
 		return TRUE;
 	} else {
 		return FALSE;
