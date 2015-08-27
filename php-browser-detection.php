@@ -3,7 +3,7 @@
 Plugin Name: PHP Browser Detection
 Plugin URI: http://wordpress.org/extend/plugins/php-browser-detection/
 Description: Use PHP to detect browsers for conditional CSS or to detect mobile phones.
-Version: 3.1.5
+Version: 3.1.6
 Author: Mindshare Studios, Inc.
 Author URI: https://mind.sh/are
 License: GNU General Public License v3
@@ -40,11 +40,6 @@ if (!defined('PBD_DIR_PATH')) {
 require_once('inc/admin.php');
 require_once('lib/Browscap.php');
 
-$browscap = new \phpbrowscap\Browscap(apply_filters('php_browser_detection_cache_dir', PBD_DIR_PATH . 'cache'));
-$browscap->doAutoUpdate = apply_filters('php_browser_detection_autoupdate', TRUE);
-$browscap->updateInterval = apply_filters('php_browser_detection_cache_time', 2592000);  // 30 days, default is 5
-$browscap->remoteIniUrl = apply_filters('php_browser_detection_version', "http://browscap.org/stream?q=Lite_PHP_BrowsCapINI");
-
 $browser_info = php_browser_info();
 
 require_once('inc/deprecated.php');
@@ -57,7 +52,11 @@ require_once('inc/deprecated.php');
  * @return array
  */
 function php_browser_info() {
-	global $browscap;
+
+	$browscap = new \phpbrowscap\Browscap(apply_filters('php_browser_detection_cache_dir', PBD_DIR_PATH . 'cache'));
+	$browscap->doAutoUpdate = apply_filters('php_browser_detection_autoupdate', TRUE);
+	$browscap->updateInterval = apply_filters('php_browser_detection_cache_time', 2592000);  // 30 days, default is 5
+	$browscap->remoteIniUrl = apply_filters('php_browser_detection_version', "http://browscap.org/stream?q=Lite_PHP_BrowsCapINI");
 
 	return $browscap->getBrowser(NULL, TRUE);
 }
