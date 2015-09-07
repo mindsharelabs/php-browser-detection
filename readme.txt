@@ -85,6 +85,16 @@ Get the full version number - 3.2, 5.0, etc...
 
 *Test for specific browsers:*
 
+`
+[is_browser name="chrome" version="45"]
+<p>You are using Chrome 45 or above.</p>
+[/is_browser]
+`
+
+*Output all browser info:*
+`
+[browser_info]
+`
 
 
 == Installation ==
