@@ -3,7 +3,7 @@
 Plugin Name: PHP Browser Detection
 Plugin URI: http://wordpress.org/extend/plugins/php-browser-detection/
 Description: Use PHP to detect browsers for conditional CSS or to detect mobile phones.
-Version: 3.1.6
+Version: 3.1.7
 Author: Mindshare Studios, Inc.
 Author URI: https://mind.sh/are
 License: GNU General Public License v3
@@ -43,6 +43,7 @@ require_once('lib/Browscap.php');
 $browser_info = php_browser_info();
 
 require_once('inc/deprecated.php');
+require_once('inc/shortcodes.php');
 
 /**
  * Returns array of all browser info.
@@ -58,6 +59,7 @@ function php_browser_info() {
 	$browscap->updateInterval = apply_filters('php_browser_detection_cache_time', 2592000);  // 30 days, default is 5
 	$browscap->remoteIniUrl = apply_filters('php_browser_detection_version', "http://browscap.org/stream?q=Lite_PHP_BrowsCapINI");
 
+	//die(var_export($browscap->getBrowser(NULL, TRUE)));
 	return $browscap->getBrowser(NULL, TRUE);
 }
 
@@ -93,6 +95,8 @@ function get_browser_version() {
  */
 function is_browser($name = '', $version = '') {
 	global $browser_info;
+	
+	$name = ucwords(trim($name));
 
 	if (isset($browser_info['Browser']) && (strpos($browser_info['Browser'], $name) !== FALSE)) {
 		if ($version == '') {
