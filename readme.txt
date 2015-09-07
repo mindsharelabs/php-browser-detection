@@ -96,7 +96,6 @@ Get the full version number - 3.2, 5.0, etc...
 [browser_info]
 `
 
-
 == Installation ==
 
 1. Automatically install through the Plugin Browser or...
@@ -114,6 +113,9 @@ This means the local cached copy of the browscap.ini user agent database is out 
 This most likely means your web host is running a very old version of PHP. As of version 3.0, only PHP 5.3 and above are supported. You can ask your host to upgrade PHP for you.
 
 == Changelog ==
+
+= 3.1.7 =
+* Added shortcodes
 
 = 3.1.6 =
 * Bugfix for 3.1.5
