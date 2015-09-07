@@ -171,6 +171,24 @@ get_header();
 							?>
 						</div>
 
+						<div style="padding:5px; margin:10px 0; border-radius:5px; background:#E6E6E6">
+							<p>Shortcodes:</p>
+
+							<div class="post"><p>I've implemented 2 basic shortcodes, if you care to test the new version:
+									<a href="https://github.com/mindsharestudios/php-browser-detection/archive/master.zip" rel="nofollow">https://github.com/mindsharestudios/php-browser-detection/archive/master.zip</a></p>
+								<p>Show content to specific browsers:<br>
+								</p><pre><code>[is_browser name="chrome" version="45"]
+											   &lt;p&gt;You are using Chrome 45 or above.&lt;/p&gt;
+											   [/is_browser]</code></pre>
+								<?php echo do_shortcode('[is_browser name="chrome" version="45"]<strong>You are using Chrome 45 or above.</strong>[/is_browser]'); ?>
+								<hr />
+								<p>Output all browser info:<br></p>
+								<pre><code>[browser_info]</code></pre>
+								<?php echo do_shortcode('[browser_info]'); ?>
+							</div>
+
+						</div>
+
 					<?php endwhile; endif; ?>
 			</div>
 		</div>

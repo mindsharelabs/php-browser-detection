@@ -34,7 +34,7 @@ function browser_info_shorcode() {
 	$browser_info = php_browser_info();
 
 	$output = apply_filters('browser_info_start', '<div class="php-browser-info"><pre>');
-	$output .= apply_filters('browser_info_middle', var_export($browser_info, TRUE));
+	$output .= apply_filters('browser_info_middle', print_r($browser_info, TRUE));
 	$output .= apply_filters('browser_info_end', '</pre></div>');
 
 	return $output;

@@ -95,7 +95,7 @@ function get_browser_version() {
  */
 function is_browser($name = '', $version = '') {
 	global $browser_info;
-	
+
 	$name = ucwords(trim($name));
 
 	if (isset($browser_info['Browser']) && (strpos($browser_info['Browser'], $name) !== FALSE)) {
