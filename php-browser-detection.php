@@ -3,7 +3,7 @@
 Plugin Name: PHP Browser Detection
 Plugin URI: http://wordpress.org/extend/plugins/php-browser-detection/
 Description: Use PHP to detect browsers for conditional CSS or to detect mobile phones.
-Version: 3.1.7
+Version: 3.1.8
 Author: Mindshare Studios, Inc.
 Author URI: https://mind.sh/are
 License: GNU General Public License v3
@@ -33,9 +33,24 @@ Text Domain: php-browser-detection
  *
  */
 
+// TODO refactor into class using object oriented code, filters aren't currently working
+
 if (!defined('PBD_DIR_PATH')) {
 	define('PBD_DIR_PATH', plugin_dir_path(__FILE__)); // /.../wp-content/plugins/php-browser-detection/
 }
+
+/**
+ * Global variable with browser information.
+ *
+ * @global
+ */
+$browser_info = array();
+
+/**
+ * PHP Browser Detection initialization
+ *
+ * @private
+ */
 
 require_once('inc/admin.php');
 require_once('lib/Browscap.php');
@@ -43,7 +58,7 @@ require_once('lib/Browscap.php');
 $browser_info = php_browser_info();
 
 require_once('inc/deprecated.php');
-require_once('inc/shortcodes.php');
+include_once('inc/shortcodes.php');
 
 /**
  * Returns array of all browser info.
@@ -59,7 +74,9 @@ function php_browser_info() {
 	$browscap->updateInterval = apply_filters('php_browser_detection_cache_time', 2592000);  // 30 days, default is 5
 	$browscap->remoteIniUrl = apply_filters('php_browser_detection_version', "http://browscap.org/stream?q=Lite_PHP_BrowsCapINI");
 
-	//die(var_export($browscap->getBrowser(NULL, TRUE)));
+	//	die(var_export($browscap->remoteIniUrl));
+	//	die(var_export($browscap->getBrowser(NULL, TRUE)));
+
 	return $browscap->getBrowser(NULL, TRUE);
 }
 

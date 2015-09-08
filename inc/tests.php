@@ -12,13 +12,23 @@
  * 
  */
 include_once('../../../../wp-blog-header.php');
+/*
+function browser_detection_version($version) {
+	$version = 'http://browscap.org/stream?q=PHP_BrowsCapINI';
+	return $version;
+}
+
+add_filter('php_browser_detection_version', 'browser_detection_version');*/
+
 if (array_key_exists('test-id', $_GET) && isset($_GET['test-id'])) {
 	$id = $_GET['test-id'];
 } else {
 	$id = 2;
 }
 $q = new WP_Query('page_id=' . $id);
+
 get_header();
+
 ?>
 <div id="main" class="site-main">
 	<div id="main-content" class="main-content">
