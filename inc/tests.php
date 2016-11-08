@@ -6,9 +6,9 @@
  *
  *
  * @created 4/9/13 4:00 PM
- * @author Mindshare Studios, Inc.
- * @copyright Copyright (c) 2014
- * @link http://www.mindsharelabs.com/kb/
+ * @author Mindshare Labs, Inc.
+ * @copyright Copyright (c) 2017
+ * @link https://mind.sh/are/
  * 
  */
 include_once('../../../../wp-blog-header.php');
@@ -20,8 +20,8 @@ function browser_detection_version($version) {
 
 add_filter('php_browser_detection_version', 'browser_detection_version');*/
 
-if (array_key_exists('test-id', $_GET) && isset($_GET['test-id'])) {
-	$id = $_GET['test-id'];
+if (array_key_exists('test-id', $_GET) && isset($_GET[ 'test-id' ])) {
+	$id = $_GET[ 'test-id' ];
 } else {
 	$id = 2;
 }
@@ -42,7 +42,7 @@ get_header();
 						<?php //the_content(); ?>
 
 						<div style="padding:5px; margin:10px 0; border-radius:5px; background:#E6E6E6">
-							<p>Get all browser info:</p>
+							<h2>Get all browser info:</h2>
 							<?php
 							$browser_info = php_browser_info();
 							echo '<pre>php_browser_info() = ';
@@ -52,7 +52,7 @@ get_header();
 						</div>
 
 						<div style="padding:5px; margin:10px 0; border-radius:5px; background:#E6E6E6">
-							<p>Get browser name:</p>
+							<h2>Get browser name:</h2>
 							<?php
 							echo '<pre>get_browser_name() = ';
 							echo get_browser_name();
@@ -61,7 +61,7 @@ get_header();
 						</div>
 
 						<div style="padding:5px; margin:10px 0; border-radius:5px; background:#E6E6E6">
-							<p>Get browser version:</p>
+							<h2>Get browser version:</h2>
 							<?php
 							echo '<pre>get_browser_version() = ';
 							echo get_browser_version();
@@ -70,7 +70,7 @@ get_header();
 						</div>
 
 						<div style="padding:5px; margin:10px 0; border-radius:5px; background:#E6E6E6">
-							<p>Test for specific browsers:</p>
+							<h2>Test for specific browsers:</h2>
 							<?php
 							echo '<pre>is_firefox() = ';
 							echo is_firefox();
@@ -95,7 +95,7 @@ get_header();
 						</div>
 
 						<div style="padding:5px; margin:10px 0; border-radius:5px; background:#E6E6E6">
-							<p>Test for mobile/iphone/ipad:</p>
+							<h2>Test for mobile/iphone/ipad:</h2>
 							<?php
 							echo '<pre>is_desktop() = ';
 							echo is_desktop();
@@ -125,7 +125,7 @@ get_header();
 						</div>
 
 						<div style="padding:5px; margin:10px 0; border-radius:5px; background:#E6E6E6">
-							<p>Test for browser support:</p>
+							<h2>Test for browser support:</h2>
 							<?php
 							echo '<pre>browser_supports_javascript() = ';
 							echo browser_supports_javascript();
@@ -143,7 +143,7 @@ get_header();
 						</div>
 
 						<div style="padding:5px; margin:10px 0; border-radius:5px; background:#E6E6E6">
-							<p>Test for higher or lower versions of a browser:</p>
+							<h2>Test for higher or lower versions of a browser:</h2>
 							<?php
 							echo '<pre>if(is_ie() && get_browser_version() < 10) = ';
 							if (is_ie() && get_browser_version() < 10) {
@@ -159,7 +159,7 @@ get_header();
 						</div>
 
 						<div style="padding:5px; margin:10px 0; border-radius:5px; background:#E6E6E6">
-							<p>Test for specific versions of a browser:</p>
+							<h2>Test for specific versions of a browser:</h2>
 							<?php
 							echo '<pre>if(is_ie(11)) = ';
 							if (is_ie(11)) {
@@ -182,12 +182,11 @@ get_header();
 						</div>
 
 						<div style="padding:5px; margin:10px 0; border-radius:5px; background:#E6E6E6">
-							<p>Shortcodes:</p>
+							<h2>Shortcodes:</h2>
 
-							<div class="post"><p>I've implemented 2 basic shortcodes, if you care to test the new version:
-									<a href="https://github.com/mindsharestudios/php-browser-detection/archive/master.zip" rel="nofollow">https://github.com/mindsharestudios/php-browser-detection/archive/master.zip</a></p>
-								<p>Show content to specific browsers:<br>
-								</p><pre><code>[is_browser name="chrome" version="45"]
+							<div class="post">
+								<p>Show content to specific browsers:<br /></p>
+								<pre><code>[is_browser name="chrome" version="45"]
 											   &lt;p&gt;You are using Chrome 45 or above.&lt;/p&gt;
 											   [/is_browser]</code></pre>
 								<?php echo do_shortcode('[is_browser name="chrome" version="45"]<strong>You are using Chrome 45 or above.</strong>[/is_browser]'); ?>

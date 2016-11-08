@@ -2,15 +2,13 @@
 Contributors: mindshare, MartyThornley
 Donate link: http://mind.sh/are/donate/
 Tags: php, browser detection, browser, internet explorer, iphone, mobile, browscap, detection
-Version: 3.1.8
-Tested up to: 4.3
-Stable tag: 3.1.8
+Version: 3.2.0
+Tested up to: 4.6.1
+Stable tag: 3.2.0
 
 PHP Browser Detection is a WordPress plugin used to detect a user's browser. Please report any bugs on the support forums.
 
 == Description ==
-
-Version 3 adds support for is_tablet(), is_desktop(), and is_browser() as well as numerous bug fixes and code improvements. As of version 3.1.2 automatic updates of browscap.ini are disabeld until we can deal with memory usage issues.
 
 PHP Browser Detection is a WordPress plugin used to detect a user's browser. It can be used to send conditional CSS files for Internet Explorer, display different content or custom messages anywhere on the page, or to swap out Flash for an image for iPhones.
 
@@ -113,6 +111,14 @@ This means the local cached copy of the browscap.ini user agent database is out 
 This most likely means your web host is running a very old version of PHP. As of version 3.0, only PHP 5.3 and above are supported. You can ask your host to upgrade PHP for you.
 
 == Changelog ==
+
+= 3.2.0 =
+* Update phpbrowscap to version 2.1.1
+* Update .gitignore to version 1.0.6
+* Update browscap.ini to version 6018
+* Change copyright
+* Add function_exists check to all functions
+* Update tests
 
 = 3.1.8 =
 * Add missing include file

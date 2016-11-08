@@ -3,41 +3,72 @@
  * php-browser-detection / shortcodes.php
  *
  * @created   9/7/15 11:59 AM
- * @author    Mindshare Studios, Inc.
- * @copyright Copyright (c) 2015
+ * @author    Mindshare Labs, Inc.
+ * @copyright Copyright (c) 2017
  * @link      https://mind.sh/are/
  */
 
-/**
- * @param        $browser
- * @param string $content
- *
- * @return bool|string
- */
-function is_browser_shorcode($browser, $content = "") {
-	$browser = shortcode_atts(array(
-		'name'    => '',
-		'version' => ''
-	), $browser, 'is_browser');
+if (!function_exists('is_browser_shortcode')) :
 
-	if (is_browser($browser['name'], $browser['version'])) {
-		return ($content);
-	} else {
-		return FALSE;
+	/**
+	 * @param        $browser
+	 * @param string $content
+	 *
+	 * @return bool|string
+	 */
+	function is_browser_shortcode($browser, $content = "") {
+		$browser = shortcode_atts(array(
+									  'name'    => '',
+									  'version' => '',
+								  ), $browser, 'is_browser');
+
+		if (is_browser($browser[ 'name' ], $browser[ 'version' ])) {
+			return ($content);
+		} else {
+			return FALSE;
+		}
 	}
-}
+endif;
 
-add_shortcode('is_browser', 'is_browser_shorcode');
+if (!function_exists('is_os_shortcode')) :
 
-function browser_info_shorcode() {
+	/**
+	 * @param        $os
+	 * @param string $content
+	 *
+	 * @return bool|string
+	 */
+	function is_os_shortcode($os, $content = "") {
+		$os = shortcode_atts(array(
+								 'name'    => '',
+								 'version' => '',
+							 ), $os, 'is_os');
 
-	$browser_info = php_browser_info();
+		if (is_browser($os[ 'name' ], $os[ 'version' ])) {
+			return ($content);
+		} else {
+			return FALSE;
+		}
+	}
 
-	$output = apply_filters('browser_info_start', '<div class="php-browser-info"><pre>');
-	$output .= apply_filters('browser_info_middle', print_r($browser_info, TRUE));
-	$output .= apply_filters('browser_info_end', '</pre></div>');
+	add_shortcode('is_browser', 'is_os_shortcode');
+endif;
 
-	return $output;
-}
+if (!function_exists('browser_info_shortcode')) :
 
-add_shortcode('browser_info', 'browser_info_shorcode');
+	/**
+	 * @return mixed|string|void
+	 */
+	function browser_info_shortcode() {
+
+		$browser_info = php_browser_info();
+
+		$output = apply_filters('browser_info_start', '<div class="php-browser-info"><pre>');
+		$output .= apply_filters('browser_info_middle', print_r($browser_info, TRUE));
+		$output .= apply_filters('browser_info_end', '</pre></div>');
+
+		return $output;
+	}
+
+	add_shortcode('browser_info', 'browser_info_shortcode');
+endif;

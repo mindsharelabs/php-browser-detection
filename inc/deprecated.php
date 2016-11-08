@@ -4,9 +4,9 @@
  * Do not use these functions, included for backward compatibility only.
  *
  * @created   4/29/14 4:26 PM
- * @author    Mindshare Studios, Inc.
- * @copyright Copyright (c) 2014
- * @link      http://www.mindsharelabs.com/documentation/
+ * @author    Mindshare Labs, Inc.
+ * @copyright Copyright (c) 2017
+ * @link      https://mind.sh/are/
  */
 
 /**
