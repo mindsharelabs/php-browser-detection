@@ -41,7 +41,7 @@ get_header();
 
 						<?php //the_content(); ?>
 
-						<div style="padding:5px; margin:10px 0; border-radius:5px; background:#E6E6E6">
+						<div>
 							<h2>Get all browser info:</h2>
 							<?php
 							$browser_info = php_browser_info();
@@ -51,7 +51,7 @@ get_header();
 							?>
 						</div>
 
-						<div style="padding:5px; margin:10px 0; border-radius:5px; background:#E6E6E6">
+						<div>
 							<h2>Get browser name:</h2>
 							<?php
 							echo '<pre>get_browser_name() = ';
@@ -60,7 +60,7 @@ get_header();
 							?>
 						</div>
 
-						<div style="padding:5px; margin:10px 0; border-radius:5px; background:#E6E6E6">
+						<div>
 							<h2>Get browser version:</h2>
 							<?php
 							echo '<pre>get_browser_version() = ';
@@ -69,7 +69,7 @@ get_header();
 							?>
 						</div>
 
-						<div style="padding:5px; margin:10px 0; border-radius:5px; background:#E6E6E6">
+						<div>
 							<h2>Test for specific browsers:</h2>
 							<?php
 							echo '<pre>is_firefox() = ';
@@ -94,7 +94,7 @@ get_header();
 							?>
 						</div>
 
-						<div style="padding:5px; margin:10px 0; border-radius:5px; background:#E6E6E6">
+						<div>
 							<h2>Test for mobile/iphone/ipad:</h2>
 							<?php
 							echo '<pre>is_desktop() = ';
@@ -124,7 +124,7 @@ get_header();
 							?>
 						</div>
 
-						<div style="padding:5px; margin:10px 0; border-radius:5px; background:#E6E6E6">
+						<div>
 							<h2>Test for browser support:</h2>
 							<?php
 							echo '<pre>browser_supports_javascript() = ';
@@ -142,7 +142,7 @@ get_header();
 							?>
 						</div>
 
-						<div style="padding:5px; margin:10px 0; border-radius:5px; background:#E6E6E6">
+						<div>
 							<h2>Test for higher or lower versions of a browser:</h2>
 							<?php
 							echo '<pre>if(is_ie() && get_browser_version() < 10) = ';
@@ -158,7 +158,7 @@ get_header();
 							?>
 						</div>
 
-						<div style="padding:5px; margin:10px 0; border-radius:5px; background:#E6E6E6">
+						<div>
 							<h2>Test for specific versions of a browser:</h2>
 							<?php
 							echo '<pre>if(is_ie(11)) = ';
@@ -181,15 +181,21 @@ get_header();
 							?>
 						</div>
 
-						<div style="padding:5px; margin:10px 0; border-radius:5px; background:#E6E6E6">
+						<div>
 							<h2>Shortcodes:</h2>
 
 							<div class="post">
 								<p>Show content to specific browsers:<br /></p>
-								<pre><code>[is_browser name="chrome" version="45"]
-											   &lt;p&gt;You are using Chrome 45 or above.&lt;/p&gt;
+								<pre><code>[is_browser name="chrome" version="54"]
+											   &lt;p&gt;You are using Chrome 54 or above.&lt;/p&gt;
 											   [/is_browser]</code></pre>
-								<?php echo do_shortcode('[is_browser name="chrome" version="45"]<strong>You are using Chrome 45 or above.</strong>[/is_browser]'); ?>
+								<?php echo do_shortcode('[is_browser name="chrome" version="54"]<p><strong>You are using Chrome 54 or above.</strong></p>[/is_browser]'); ?>
+								<hr />
+								<p>Show content to specific platforms:<br /></p>
+								<pre><code>[is_os platform="Linux"]
+											   &lt;p&gt;You are using Linux.&lt;/p&gt;
+											   [/is_os]</code></pre>
+								<?php echo do_shortcode('[is_os platform="Linux"]<p><strong>You are using Linux.</strong></p>[/is_os]'); ?>
 								<hr />
 								<p>Output all browser info:<br></p>
 								<pre><code>[browser_info]</code></pre>

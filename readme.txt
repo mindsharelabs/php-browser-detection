@@ -30,6 +30,10 @@ $version is optional. Include a major version number, a single integer - 3,4,5, 
 
 `<?php if(is_browser($name, $version)) { /* your code here */ }; ?>`
 
+*Check OS/platform...*
+
+`<?php if(is_os('Linux')) { /* your code here */ }; ?>`
+
 *Check for mobile, tablet, iPhone, iPad, iPod, etc...*
 
 `<?php if(is_desktop()) { /* your code here */ }; ?>`
@@ -89,6 +93,14 @@ Get the full version number - 3.2, 5.0, etc...
 [/is_browser]
 `
 
+*Test for specific OS/platform:*
+
+`
+[is_os platform="Linux"]
+<p>You are using Linux.</p>
+[/is_os]
+`
+
 *Output all browser info:*
 `
 [browser_info]
@@ -113,6 +125,8 @@ This most likely means your web host is running a very old version of PHP. As of
 == Changelog ==
 
 = 3.2.0 =
+* Added `is_os()` function
+* Added `is_os` shortcode
 * Update phpbrowscap to version 2.1.1
 * Update .gitignore to version 1.0.6
 * Update browscap.ini to version 6018

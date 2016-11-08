@@ -109,6 +109,7 @@ if (!function_exists('is_browser')) :
 	 * @return bool
 	 */
 	function is_browser($name = '', $version = '') {
+
 		global $browser_info;
 
 		$name = ucwords(trim($name));
@@ -144,14 +145,10 @@ if (!function_exists('is_os')) :
 
 		$platform = ucwords(trim($platform));
 
-		if (isset($browser_info[ 'Browser' ]) && (strpos($browser_info[ 'Browser' ], $platform) !== FALSE)) {
-			if ($version == '') {
+		if (isset($browser_info[ 'Platform' ]) && (strpos($browser_info[ 'Platform' ], $platform) !== FALSE)) {
+			if ($platform == '') {
 				return TRUE;
-				// check MajorVer from full browscap first
-			} elseif (isset($browser_info[ 'MajorVer' ]) && $browser_info[ 'MajorVer' ] == $version) {
-				return TRUE;
-				// fallback to Version in lite version
-			} elseif (isset($browser_info[ 'Version' ]) && $browser_info[ 'Version' ] == $version) {
+			} elseif (isset($browser_info[ 'Platform' ]) && $browser_info[ 'Platform' ] == $platform) {
 				return TRUE;
 			} else {
 				return FALSE;

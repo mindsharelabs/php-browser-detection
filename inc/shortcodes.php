@@ -9,7 +9,6 @@
  */
 
 if (!function_exists('is_browser_shortcode')) :
-
 	/**
 	 * @param        $browser
 	 * @param string $content
@@ -17,17 +16,21 @@ if (!function_exists('is_browser_shortcode')) :
 	 * @return bool|string
 	 */
 	function is_browser_shortcode($browser, $content = "") {
+
 		$browser = shortcode_atts(array(
 									  'name'    => '',
 									  'version' => '',
 								  ), $browser, 'is_browser');
 
 		if (is_browser($browser[ 'name' ], $browser[ 'version' ])) {
-			return ($content);
+			return $content;
 		} else {
 			return FALSE;
 		}
 	}
+
+	add_shortcode('is_browser', 'is_browser_shortcode');
+
 endif;
 
 if (!function_exists('is_os_shortcode')) :
@@ -40,22 +43,20 @@ if (!function_exists('is_os_shortcode')) :
 	 */
 	function is_os_shortcode($os, $content = "") {
 		$os = shortcode_atts(array(
-								 'name'    => '',
-								 'version' => '',
+								 'platform' => '',
 							 ), $os, 'is_os');
 
-		if (is_browser($os[ 'name' ], $os[ 'version' ])) {
-			return ($content);
+		if (is_os($os[ 'platform' ])) {
+			return $content;
 		} else {
 			return FALSE;
 		}
 	}
 
-	add_shortcode('is_browser', 'is_os_shortcode');
+	add_shortcode('is_os', 'is_os_shortcode');
 endif;
 
 if (!function_exists('browser_info_shortcode')) :
-
 	/**
 	 * @return mixed|string|void
 	 */
